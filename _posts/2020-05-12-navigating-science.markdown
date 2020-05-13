@@ -5,6 +5,9 @@ date:   2020-05-11 20:50:44 -0600
 categories: science disease
 author: Jeremy Andrews
 ---
+> This is an excerpt of an article written by my friend. I've copied it to a post in jekyll to convince him to use this instead of wordpress.
+
+
 How does one navigate information? Why is it so often the case that we see reference to a research article that is grossly misinterpreted and how can we better understand how to consume science?
 ## A Little History
 
@@ -29,7 +32,9 @@ Both rabbit cartilage from scapular bones and Basking shark fins stored at -20 d
 
 Moreover, the issue with the original logic is that it neglected a large component of most any treatment. The delivery of the intervention to the site of the issue. It raises more questions than it answers. How does the cartilage make it through the stomach acid without being denatured? If it is denatured how will it affect the treatment? How much of the cartilage is absorbed in the GI? Does the amount absorbed match the original intervention amount? Once absorbed, how does the cartilage make it to the tumor site? If cartilage causes decreased angiogenesis, does this affect places in my body where I want angiogenesis to occur? Are there any side effects to this treatment? It is easy to come to the conclusion that had a few questions been asked, this book would have never sold.
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/k2t6NUWwFGA/0.jpg)](https://www.youtube.com/watch?v=k2t6NUWwFGA)
+<iframe width="100%" height="400px"
+src="https://www.youtube.com/embed/k2t6NUWwFGA">
+</iframe>
 
 ## The Research Pyramid
 
@@ -49,7 +54,9 @@ Systematic reviews are the compiling and synthesizing of information from RCTs t
 
 Meta analysis is performed during systematic reviews. These are statistical inferences made on the RCTs. Not all systematic reviews have a meta analysis as a lot of the time it is not appropriate to do so. A good thing to be aware of when looking at systematic reviews is if they performed a meta analysis when they should not have. It’s possible to do one when there is any systematic review, even ones with only 1 article in them. But the point is to be able to draw an accurate picture across many different articles. As Ian Malcom would say
 
-![Should you?](https://themedicalrinse.com/wp-content/uploads/2020/05/Malcom.gif)
+<p align="center">
+  <img src="https://themedicalrinse.com/wp-content/uploads/2020/05/Malcom.gif" />
+</p>
 
 ## Other Approaches
 
