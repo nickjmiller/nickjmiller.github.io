@@ -1,4 +1,5 @@
 ---
+layout: post
 title:  "Navigating Science"
 date:   2020-05-11 20:50:44 -0600
 categories: science disease
@@ -8,7 +9,7 @@ author: Jeremy Andrews
 
 
 How does one navigate information? Why is it so often the case that we see reference to a research article that is grossly misinterpreted and how can we better understand how to consume science?
-# A Little History
+## A Little History
 
 The year is 1975 and a paper was just published in the Journal of Experimental Medicine that is investigating the relationship of tumors and tumor growth. The paper hypothesized that because tumors develop in two stages, avascular and vascular (no blood feeding the tumor and blood feeding the tumor) that it could be prevented from reaching the vascular phase of growth through inhibition of tumor-angiogenesis-factor (TAF). The avascular stage lasts between 3-5 days, during which it produces TAF in order to stimulate vascularization. The logic goes that in the body cartilage is an avascular tissue, therefore, it must have some ability to prevent vascularization. This study successfully demonstrated that if cartilage (highly refined cartilage from the distal segment of scalar bones of 70 rabbits) was injected to the site of the tumor it would decrease and in some cases prevent the growth of blood vessels to the tumor site. Well done
 
@@ -18,7 +19,7 @@ Fast forward to the year of 1992. Dr. William Lane whose interest in this resear
 
 ![Shark teeth](https://themedicalrinse.com/wp-content/uploads/2020/05/shark-fins.png)
 
-# Understanding Science
+## Understanding Science
 
 It’s easy to see how problematic this way of thinking is. The original research articles are thought out approaches that applied the scientific method in order to find a conclusion about a hypothesis. They are tests that can be repeated to ensure validity of their statements. Moreover, they are methodically laid out in such a way that it is apparent how the researchers came to their conclusions.
 
@@ -31,7 +32,7 @@ Both rabbit cartilage from scapular bones and Basking shark fins stored at -20 d
 
 Moreover, the issue with the original logic is that it neglected a large component of most any treatment. The delivery of the intervention to the site of the issue. It raises more questions than it answers. How does the cartilage make it through the stomach acid without being denatured? If it is denatured how will it affect the treatment? How much of the cartilage is absorbed in the GI? Does the amount absorbed match the original intervention amount? Once absorbed, how does the cartilage make it to the tumor site? If cartilage causes decreased angiogenesis, does this affect places in my body where I want angiogenesis to occur? Are there any side effects to this treatment? It is easy to come to the conclusion that had a few questions been asked, this book would have never sold.
 
-<iframe
+<iframe width="100%" height="400px"
 src="https://www.youtube.com/embed/k2t6NUWwFGA">
 </iframe>
 
@@ -57,7 +58,7 @@ Meta analysis is performed during systematic reviews. These are statistical infe
   <img src="https://themedicalrinse.com/wp-content/uploads/2020/05/Malcom.gif" />
 </p>
 
-# Other Approaches
+## Other Approaches
 
 Ok so I’ve laid out the different levels of research and gave a little explanation as to what they are and how they can be used.how does one apply this? It’s simply good to know where to look for information. Knowing where information falls on the pyramid is important for understanding the quality of information being consumed. Those that already have a good grasp of the pyramid may already be thinking of examples of how only using this could lead to poor quality of information. That is the right mind set! 
 
@@ -65,7 +66,7 @@ Generally speaking, this is just one approach to looking at information. Another
 
 Now this search is extremely specific. Moreover, it is much more likely to give me the quality of information that I need. If you’re not consuming information in this fashion you might come to the wrong conclusions. For example, as a 28 year old male I might want to know the best way to gain muscle mass. After performing a search I found an article that demonstrates a 15% increase of lean muscle mass on male patients ages 45-55 with testosterone therapy. After reading this I may come to the conclusion that I need to start supplementing with testosterone in order to achieve my goal of gaining muscle mass. It’s important to note that this is the wrong population. Males begin going through andropause in their late 20s and continue to decline into their middle age 45-55. This example is likely too simplistic, but it serves to demonstrate that without knowing the specifics of a question you may be finding answers to a different one. The book Sharks don’t get cancer resulted in millions of sharks being killed each year for their fins. Even worse, people neglected to get life saving cancer treatment and instead trusted that their cure was in a small pill full of cartilage. There are a multitude of ways in which to break down and digest information. There are also a lot of good quality resources that help to do it for you. They are of course no substitute for your own research.
 
-# Closing Thoughts
+## Closing Thoughts
 
 There are SO MANY sources of information out there that it sometimes feels impossible to vet all of it. The case above highlights how vulnerable populations can be taken advantage of in order to push unproven information and, sadly, places greater value on selling a product than human life. Here are several resources that can be used to help navigate the wild ocean of information available to us today. 
 
