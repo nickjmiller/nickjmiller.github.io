@@ -1,4 +1,4 @@
-import EXERCISES from "./exercises"
+import EXERCISES from "./exercises.js"
 
 /**
  * @typedef {import("./exercises").Exercise} Exercise
