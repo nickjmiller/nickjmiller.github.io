@@ -47,6 +47,15 @@ That's easy.
 Note the [ES6 Syntax](http://www.ecma-international.org/ecma-262/6.0/index.html). We should no longer be shackled by IE 8.
 
 
+Markdown generates ids for headers, making it <a href="#markdown">Easy to link</a>.
+
 # Process
 
 I have my github repo checked out on my [Windows Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (ubuntu). I am using the [Remote WSL VSCode extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) to edit my posts. I have a markdown preview up on the right of my editor and I'm running `bundle exec jekyll serve` so that I can see changes live as I save the page.
+
+## Gotchas
+
+Running this before `bundle install` allows nokogiri to work with native extensions:
+```shell
+sudo apt-get install build-essential ruby-dev zlib1g-dev liblzma-dev
+```
