@@ -1,14 +1,20 @@
 /**
- * Local datastore of workouts
- * @type {{
+ * Exercise Schema
+ * 
+ * @typedef {{
  *      image: string,
  *      sets: number,
  *      timer: number,
  *      description: string,
  *      title: string,
- *  }[]}
+ *  }} Exercise
  */
-const workouts = [
+
+/**
+ * Local datastore of workouts
+ * @type {Exercise[]}
+ */
+const EXERCISES = [
     {
         image: "sp.gif",
         sets: 3,
@@ -25,15 +31,35 @@ const workouts = [
     },
 ];
 
-const goClick = (button, container, next) => {
-    startTimer(button, container, next);
-};
+/**
+ * Shuffled N-length array of exercises.
+ * @type {Exercise[]}
+ */
+const workout = [...EXERCISES]
 
-const initializeContainer = (container, workout) => {
-    container.querySelector("h3").textContent = `Exercise: ${workout.title}`;
-    container.querySelector("p").textContent = `How to do it: ${workout.description}`;
-    container.querySelector("img").src = `assets/images/${workout.image}`;
-    container.querySelector("#sets").textContent = `Sets: ${currentWorkout.sets}`;
+/**
+ * State of current workout routine.
+ *
+ * @type {{currentExercise: Exercise, currentIndex: number}}
+ */
+const state = {
+    currentExercise: Object.assign({}, workout[0]),
+    currentIndex: 0,
+}
+
+const countdownOneSecond = async (countdownSoundElement) => {
+    countdownSoundElement.play();
+    await sleep(1000);
+    countdownSoundElement.pause();
+    countdownSoundElement.currentTime = 0;
+}
+
+const initializeContainer = (container, state) => {
+    const { currentExercise } = state;
+    container.querySelector("h3").textContent = `Exercise: ${currentExercise.title}`;
+    container.querySelector("p").textContent = `How to do it: ${currentExercise.description}`;
+    container.querySelector("img").src = `assets/images/${currentExercise.image}`;
+    container.querySelector("#sets").textContent = `Sets: ${currentExercise.sets}`;
     container.querySelector("#timer").textContent = "";
 }
 
@@ -42,15 +68,17 @@ const nextClick = (container, go, next) => {
     const doneSound = container.querySelector("#timerDone");
     doneSound.pause();
     doneSound.currentTime = 0;
-    currentWorkout.sets--;
-    currentWorkout.timer = workouts[currentIndex].timer;
-    container.querySelector("#sets").textContent = `Sets: ${currentWorkout.sets}`;
-    if (currentWorkout.sets < 1) {
-        currentIndex++;
-        if (currentIndex < workouts.length) {
-            currentWorkout = Object.assign({}, workouts[currentIndex]);
-            initializeContainer(container, currentWorkout);
+    state.currentExercise.sets--;
+    state.currentExercise.timer = workout[state.currentIndex].timer;
+    container.querySelector("#sets").textContent = `Sets: ${state.currentExercise.sets}`;
+    if (state.currentExercise.sets < 1) {
+        state.currentIndex++;
+        if (state.currentIndex < workout.length) {
+            // TODO: If we implement a more complex exercise we'll need to deep clone instead
+            state.currentExercise = Object.assign({}, workout[state.currentIndex]);
+            initializeContainer(container, state);
         } else {
+            container.querySelector("#sets").textContent = "End of the workout!";
             go.disabled = true;
             next.disabled = true;
             return;
@@ -63,7 +91,7 @@ const sleep = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const startTimer = async (go, container, next) => {
+const startTimer = async (container, go, next) => {
     const timer = container.querySelector("#timer");
     const doneSound = container.querySelector("#timerDone");
     const countdown = container.querySelector("#countdown");
@@ -72,19 +100,19 @@ const startTimer = async (go, container, next) => {
     while (start > 0) {
         timer.textContent = `Ready in: ${start}`;
         timer.style.color = "green";
-        countdown.play();
-        await sleep(1000);
+        await countdownOneSecond(countdown);
         start--;
     }
     timer.style.color = "black";
-    while (currentWorkout.timer >= 1) {
-        timer.textContent = `Timer: ${currentWorkout.timer}`;
-        if (currentWorkout.timer < 5) {
-            countdown.play();
+    while (state.currentExercise.timer >= 1) {
+        timer.textContent = `Timer: ${state.currentExercise.timer}`;
+        if (state.currentExercise.timer < 5) {
             timer.style.color = "red";
+            await countdownOneSecond(countdown);
+        } else {
+            await sleep(1000);
         }
-        await sleep(1000);
-        currentWorkout.timer--;
+        state.currentExercise.timer--;
     }
     timer.textContent = "Done!";
     timer.style.color = "green";
@@ -92,14 +120,11 @@ const startTimer = async (go, container, next) => {
     next.disabled = false;
 }
 
-let currentWorkout = Object.assign({}, workouts[0]);
-let currentIndex = 0;
-
 window.onload = () => {
     const container = document.querySelector("#container");
     const go = container.querySelector("#go");
     const next = container.querySelector("#next");
-    initializeContainer(container, currentWorkout);
-    go.onclick = () => goClick(go, container, next);
+    initializeContainer(container, state);
+    go.onclick = () => startTimer(container, go, next);
     next.onclick = () => nextClick(container, go, next);
 }
