@@ -2,7 +2,7 @@
 layout: page
 title:  "Workout"
 ---
-<script src="{{ base.url | prepend: site.url }}/assets/js/workout.js"></script>
+<script type="module" src="{{ base.url | prepend: site.url }}/assets/js/workout.js"></script>
 
 <div id="container">
     <audio id="timerDone">
