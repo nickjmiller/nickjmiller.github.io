@@ -2,7 +2,7 @@
 layout: post
 title:  "First Post"
 date:   2020-05-14 00:00:00 -0600
-categories: jekyll news github
+categories: news front-end
 ---
 
 This is my first post using jekyll and github pages. I initally went with [Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes) for my layout to show my friend the capabilities of this type of site, but that comes with a lot more features than I need.
