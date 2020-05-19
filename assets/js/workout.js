@@ -47,8 +47,12 @@ const initializeContainer = (container, state) => {
     container.querySelector("p").textContent = `How to do it: ${currentExercise.description}`;
     const videoElement = container.querySelector("video");
     videoElement.src = `assets/images/${currentExercise.image}`;
-    videoElement.load();
-    videoElement.play();
+    try {
+        videoElement.load();
+        videoElement.play();
+    } catch (error) {
+        console.error(error);
+    }
     container.querySelector("#sets").textContent = `Sets: ${currentExercise.sets}`;
     container.querySelector("#timer").textContent = "";
 }
