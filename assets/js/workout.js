@@ -40,7 +40,10 @@ const countdownOneSecond = async (countdownSoundElement) => {
 
 const initializeContainer = (container, state) => {
     const { currentExercise } = state;
-    container.querySelector("h3").textContent = `Exercise: ${currentExercise.title}`;
+    if (currentExercise.alternate){
+        currentExercise.sets++;
+    }
+    container.querySelector("h3").textContent = `${currentExercise.alternate ? "(ALTERNATE) " : ""}Exercise: ${currentExercise.title}`;
     container.querySelector("p").textContent = `How to do it: ${currentExercise.description}`;
     container.querySelector("img").src = `assets/images/${currentExercise.image}`;
     container.querySelector("#sets").textContent = `Sets: ${currentExercise.sets}`;
@@ -106,7 +109,9 @@ const startTimer = async (container) => {
 
     state.currentExercise.sets--;
     container.querySelector("#sets").textContent = `Sets: ${state.currentExercise.sets}`;
-    await rest(timer);
+    if (!state.currentExercise.alternate || !(state.currentExercise.sets % 2)) {
+        await rest(timer);
+    }
 }
 
 const rest = async (timer) => {
