@@ -21,8 +21,7 @@ title:  "Workout"
     <p></p>
     <span id="timer"></span>
     <span id="sets"></span>
-    <video autoplay loop muted playsinline controls>
-        <source id="video" src="" type="video/webm">
+    <video autoplay loop defaultMuted muted playsinline style="max-width:90vw">
     </video>
     <button id="go">Let's Go!</button>
 </div>
