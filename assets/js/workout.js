@@ -45,7 +45,10 @@ const initializeContainer = (container, state) => {
     }
     container.querySelector("h3").textContent = `${currentExercise.alternate ? "(ALTERNATE) " : ""}Exercise: ${currentExercise.title}`;
     container.querySelector("p").textContent = `How to do it: ${currentExercise.description}`;
-    container.querySelector("img").src = `assets/images/${currentExercise.image}`;
+    container.querySelector("#video").src = `assets/images/${currentExercise.image}`;
+    const videoElement = container.querySelector("video");
+    videoElement.load();
+    videoElement.play();
     container.querySelector("#sets").textContent = `Sets: ${currentExercise.sets}`;
     container.querySelector("#timer").textContent = "";
 }

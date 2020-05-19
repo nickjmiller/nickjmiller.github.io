@@ -21,6 +21,8 @@ title:  "Workout"
     <p></p>
     <span id="timer"></span>
     <span id="sets"></span>
-    <img src="" />
+    <video autoplay loop muted playsinline controls>
+        <source id="video" src="" type="video/webm">
+    </video>
     <button id="go">Let's Go!</button>
 </div>
