@@ -22,6 +22,5 @@ title:  "Workout"
     <span id="timer"></span>
     <span id="sets"></span>
     <img src="" />
-    <button id="go">Go!</button>
-    <button disabled id="next">Next set</button>
+    <button id="go">Let's Go!</button>
 </div>
