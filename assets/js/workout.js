@@ -16,10 +16,10 @@ const shuffleExercises = () => {
 }
 
 /**
- * Shuffled 6-length array of exercises.
+ * Shuffled 5-length array of exercises.
  * @type {Exercise[]}
  */
-const workout = shuffleExercises().slice(0, 6);
+const workout = shuffleExercises().slice(0, 5);
 
 /**
  * State of current workout routine.
@@ -47,16 +47,21 @@ const initializeContainer = (container, state) => {
     container.querySelector("#timer").textContent = "";
 }
 
-const getNextExercise = (container, go) => {
+/**
+ * @param {HTMLElement} container
+ * @returns {boolean} if workout is done
+ */
+const setNextExercise = (container) => {
     state.currentIndex++;
     if (state.currentIndex < workout.length) {
         // TODO: If we implement a more complex exercise we'll need to deep clone instead
         state.currentExercise = Object.assign({}, workout[state.currentIndex]);
         initializeContainer(container, state);
+        return false;
     } else {
         container.querySelector("#sets").textContent = "End of the workout!";
-        go.disabled = true;
-        return;
+        container.querySelector("#timer").textContent = "";
+        return true;
     }
 }
 
@@ -64,13 +69,12 @@ const sleep = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const startTimer = async (container, go) => {
+const startTimer = async (container) => {
     state.currentExercise.timer = workout[state.currentIndex].timer;
     const timer = container.querySelector("#timer");
     const doneSound = container.querySelector("#timerDone");
     const countdown = container.querySelector("#countdown");
     const startSound = container.querySelector("#start");
-    go.disabled = true;
     let start = 3;
     while (start > 0) {
         timer.textContent = `Ready in: ${start}`;
@@ -117,14 +121,12 @@ const rest = async (timer) => {
 window.onload = () => {
     const container = document.querySelector("#container");
     const go = container.querySelector("#go");
-    const next = container.querySelector("#next");
     initializeContainer(container, state);
     go.onclick = async () => {
         go.disabled = true;
         while (state.currentExercise.sets > 0) {
-            await startTimer(container, go);
+            await startTimer(container);
         }
-        getNextExercise(container, go);
-        go.disabled = false;
+        go.disabled = setNextExercise(container);
     }
 }
