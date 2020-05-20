@@ -21,19 +21,25 @@ const shuffleExercises = () => {
  */
 const workout = shuffleExercises().slice(0, 5);
 
+let defaultSets = 3;
+let defaultTimer = 45;
+
 /**
  * State of current workout routine.
  *
- * @type {{currentExercise: Exercise, currentIndex: number}}
+ * @type {{currentExercise: Exercise, currentIndex: number, sets: number, timer: number, pause: boolean}}
  */
 const state = {
     currentExercise: Object.assign({}, workout[0]),
     currentIndex: 0,
+    pause: false,
+    sets: defaultSets,
+    timer: defaultTimer,
 }
 
 const countdownOneSecond = async (countdownSoundElement) => {
     countdownSoundElement.play();
-    await sleep(1000);
+    await sleepOneSecond();
     countdownSoundElement.pause();
     countdownSoundElement.currentTime = 0;
 }
@@ -41,7 +47,7 @@ const countdownOneSecond = async (countdownSoundElement) => {
 const initializeContainer = (container, state) => {
     const { currentExercise } = state;
     if (currentExercise.alternate) {
-        currentExercise.sets++;
+        state.sets++;
     }
     container.querySelector("h3").textContent = `${currentExercise.alternate ? "(ALTERNATE) " : ""}Exercise: ${currentExercise.title}`;
     container.querySelector("p").textContent = `How to do it: ${currentExercise.description}`;
@@ -53,7 +59,7 @@ const initializeContainer = (container, state) => {
     } catch (error) {
         console.error(error);
     }
-    container.querySelector("#sets").textContent = `Sets: ${currentExercise.sets}`;
+    container.querySelector("#sets").textContent = "";
     container.querySelector("#timer").textContent = "";
 }
 
@@ -75,70 +81,103 @@ const setNextExercise = (container) => {
     }
 }
 
-const sleep = (ms) => {
+const setSets = (container) => {
+    state.sets = defaultSets;
+    state.sets = defaultSets;
+    container.querySelector("#sets").textContent = `Sets: ${state.sets}`;
+}
+
+const sleep = async (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+const sleepOneSecond = async () => {
+    while (state.pause) {
+        await sleep(50);
+    }
+    await sleep(1000);
+}
+
 const startTimer = async (container) => {
-    state.currentExercise.timer = workout[state.currentIndex].timer;
     const timer = container.querySelector("#timer");
     const doneSound = container.querySelector("#timerDone");
     const countdown = container.querySelector("#countdown");
     const startSound = container.querySelector("#start");
-    let start = 3;
-    while (start > 0) {
-        timer.textContent = `Ready in: ${start}`;
+    state.timer = 3;
+    while (state.timer > 0) {
+        timer.textContent = `Ready in: ${state.timer}`;
         timer.style.color = "green";
         await countdownOneSecond(countdown);
-        start--;
+        state.timer--;
     }
     startSound.play();
     timer.style.color = "black";
-    while (state.currentExercise.timer >= 1) {
-        timer.textContent = `Timer: ${state.currentExercise.timer}`;
-        if (state.currentExercise.timer < 5) {
+    state.timer = defaultTimer;
+    while (state.timer >= 1) {
+        timer.textContent = `Timer: ${state.timer}`;
+        if (state.timer < 5) {
             timer.style.color = "red";
             await countdownOneSecond(countdown);
         } else {
-            await sleep(1000);
+            await sleepOneSecond();
         }
-        state.currentExercise.timer--;
+        state.timer--;
     }
 
     timer.textContent = "Done!";
     timer.style.color = "green";
     doneSound.play();
-    await sleep(2000);
+    await sleepOneSecond();
+    await sleepOneSecond();
     doneSound.pause();
     doneSound.currentTime = 0;
     startSound.pause();
     startSound.currentTime = 0;
 
-    state.currentExercise.sets--;
-    container.querySelector("#sets").textContent = `Sets: ${state.currentExercise.sets}`;
-    if (!state.currentExercise.alternate || !(state.currentExercise.sets % 2)) {
+    state.sets--;
+    container.querySelector("#sets").textContent = `Sets: ${state.sets}`;
+    if (!state.currentExercise.alternate || !(state.sets % 2)) {
         await rest(timer);
     }
 }
 
 const rest = async (timer) => {
-    let rest = workout[state.currentIndex].timer;
-    while (rest >= 1) {
-        timer.textContent = `Resting: ${rest}`;
-        await sleep(1000);
-        rest--;
+    state.timer = defaultTimer;
+    while (state.timer >= 1) {
+        timer.textContent = `Resting: ${state.timer}`;
+        await sleepOneSecond();
+        state.timer--;
     }
 }
 
 window.onload = () => {
     const container = document.querySelector("#container");
     const go = container.querySelector("#go");
+    const pause = container.querySelector("#pause");
+    const skip = container.querySelector("#skip");
     initializeContainer(container, state);
     go.onclick = async () => {
+        setSets(container);
         go.disabled = true;
-        while (state.currentExercise.sets > 0) {
+        pause.disabled = skip.disabled = false;
+        while (state.sets > 0) {
             await startTimer(container);
         }
+        pause.disabled = skip.disabled = true;
         go.disabled = setNextExercise(container);
     }
+    pause.onclick = () => {
+        if (state.pause) {
+            pause.textContent = "Pause";
+        } else {
+            pause.textContent = "Resume";
+        }
+        state.pause = !state.pause;
+    }
+    skip.onclick = () => {
+        state.timer = 1;
+    }
+
+    container.querySelector("#defaultSet").addEventListener("change", (event) => defaultSets = event.target.value);
+    container.querySelector("#defaultTimer").addEventListener("change", (event) => defaultTimer = event.target.value);
 }
