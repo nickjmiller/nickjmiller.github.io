@@ -80,7 +80,7 @@ const setNextExercise = (container) => {
 
 const setSets = (container) => {
     state.sets = defaultSets;
-    if (state.currentExercise.alternate) {
+    if (state.currentExercise.alternate && defaultSets % 2) {
         state.sets++;
     }
     container.querySelector("#sets").textContent = `Sets: ${state.sets}`;

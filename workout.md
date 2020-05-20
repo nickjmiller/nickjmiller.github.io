@@ -19,7 +19,7 @@ title:  "Workout"
     </audio>
     <h3></h3>
     <p></p>
-    <label for="defaultSet">Default Sets (+1 for unilateral, applies next exercise):</label>
+    <label for="defaultSet">Default Sets (applies next exercise):</label>
     <input type="number" id="defaultSet" name="defaultSet" value="3"
        min="1" max="10">
     <label for="defaultTimer">Default Timer:</label>

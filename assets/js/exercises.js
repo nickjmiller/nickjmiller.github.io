@@ -61,10 +61,10 @@ const EXERCISES = [
     },
     {
         image: "lateral squat.mp4",
-        description: "While facing forward, take a large step to side. Bend knee as far as balance/strength will allow and push off foot to return to starting position. repeat for opposite side.",
+        description: "While facing forward, take a large step to side. Bend knee as far as balance/strength will allow and push off foot to return to starting position.",
         title: "Lateral squats",
         muscles: ["glutes"],
-        alternate: false,
+        alternate: true,
         equipment: [],
     },
     {
@@ -152,7 +152,7 @@ const EXERCISES = [
         description: "Get onto hands and knees. Drive hands into ground pushing away through shoulders. maintain this position throughout movement. Lift opposite hand and leg, extending both at the same time. Maintain neutral spine through movement, If low back arches, only extend as far as body will allow in order to maintain neutral spine.",
         title: "Quadruped contralateral extensions",
         muscles: ["abs", "balance"],
-        alternate: false,
+        alternate: true,
         equipment: [],
     },
     {
