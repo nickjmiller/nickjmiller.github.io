@@ -8,7 +8,9 @@ categories: news front-end
 After talking about jQuery sucking [in my last post]({% post_url 2020-05-14-first %}), I decided to make a fully functional "app" that is actually useful, using nothing but vanilla javascript and HTML5. You can check it out [here](/workout).
 
 ## The App
-It's a random workout generator, when the page loads it shuffles a list of exercises and pulls the first 6. There is a loosely defined schema:
+It's a random workout generator, when the page loads it shuffles a list of exercises and pulls the first 5. Users can click go and start working out with built in sets and rests.
+
+There is a loosely defined schema:
 {% raw %}
 ```js
 /**
@@ -35,7 +37,7 @@ In other words:
 
 attribute | type | purpose
 -- | -- | --
-image | string/mp4 url| A looping gif of how to perform the exercise, performed by my friend. [Here's his site](themedicalrinse.com)
+image | string/mp4 url| A looping gif of how to perform the exercise, performed by my friend. [Here's his site](https://themedicalrinse.com)
 description/title | string | Information on the exercise
 muscles | array of strings | Muscles targeted by the exercise, future work would be to sort by this
 equipment | array of strings | Equipment needed for exercise, future work would be to only show exercises that a user has equipment for
