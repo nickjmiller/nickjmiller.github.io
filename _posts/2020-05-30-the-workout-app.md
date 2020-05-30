@@ -35,7 +35,7 @@ In other words:
 
 attribute | type | purpose
 -- | -- | --
-image | string/mp4 url| A looping gif of how to perform the exercise, performed by my friend [here's his site](themedicalrinse.com)
+image | string/mp4 url| A looping gif of how to perform the exercise, performed by my friend. [Here's his site](themedicalrinse.com)
 description/title | string | Information on the exercise
 muscles | array of strings | Muscles targeted by the exercise, future work would be to sort by this
 equipment | array of strings | Equipment needed for exercise, future work would be to only show exercises that a user has equipment for
@@ -49,8 +49,9 @@ Each workout has 6 exercises, when a user clicks go the workout counts down. Eac
 
 I needed to manage state in this app, but I am using vanilla javascript. I created a global state variable, and stored all the information that I needed to describe the current state.
 
-> State:
+**State:**
 
+{% raw %}
 ```js
 /**
  * State of current workout routine.
@@ -65,6 +66,7 @@ const state = {
     timer: defaultTimer,
 }
 ```
+{% endraw %}
 
 * **currentExercise**: This object holds the current state of the exercise. We use `Object.assign` to avoid mutating the original object.
 * **currentIndex**: This is the current index of the workout, once this reaches the workout length we are done
@@ -92,7 +94,9 @@ Without a real state, making a decent timer was an issue. There's up to 999ms la
 
 ## Future Work
 
-I've transitioned this app to React, which makes all of this so much easier. I am trying out react-static and progressive web app architecture to make a cross platform website/app that is super fast and really easy to use.
+With about 180 lines of javascript and a dozen html elements, we have a random workout generator. The app is fully functional, quick, and it does exactly what I set out to do. There are more features I could add, and I could make it prettier, but at this point I don't think there's a reason to limit myself further by keeping it on my github pages site.
+
+I've transitioned this to a typescript React app, which makes all of this so much easier. I am trying out react-static and progressive web app architecture to make a cross platform website/app that is super fast and really easy to use. I'll implement new features, while making it more responsive and nicer to look at. Moving it out of my private repo means I can collaborate with friends, and our goal is to create a workout app that we'd actually want to use.
 
 #### Links
 
