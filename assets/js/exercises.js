@@ -2,17 +2,17 @@
  * Exercise Schema
  * 
  * @typedef {{
-    *      image: string,
-    *      description: string,
-    *      title: string,
-    *      muscles: muscle[],
-    *      alternate: boolean,
-    *      equipment: equipment[],
-    *  }} Exercise
-    * 
-    * @typedef {"bar" | "chair" | "block" | "ab roller" | "weight"} equipment
-    * @typedef {"abs" | "hamstrings" | "glutes" | "quads" | "balance" | "shoulder" | "stretch" | "back" | "chest" | "triceps" | "biceps"} muscle
-    */
+ *      image: string,
+ *      description: string,
+ *      title: string,
+ *      muscles: muscle[],
+ *      alternate: boolean,
+ *      equipment: equipment[],
+ *  }} Exercise
+ * 
+ * @typedef {"bar" | "chair" | "block" | "ab roller" | "weight"} equipment
+ * @typedef {"abs" | "hamstrings" | "glutes" | "quads" | "balance" | "shoulder" | "stretch" | "back" | "chest" | "triceps" | "biceps"} muscle
+ */
 
 /**
  * Local datastore of workouts
