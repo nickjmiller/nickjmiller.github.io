@@ -26,9 +26,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.nickmiller.dev" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  nickjmiller
 twitter_username: nickmillerdev
-author:
-  name: Nick Miller
-  email: "mail@nickmiller.dev"
+author: Nick Miller
 
 # Build settings
 theme: minima
@@ -36,13 +34,6 @@ plugins:
   - jekyll-feed
 
 show_excerpts: true
-
-minima:
-  skin: dark
-  date_format: "%b %-d, %Y"
-  social_links:
-    twitter: nickmillerdev
-    github: nickjmiller
 
 exclude:
   - README
