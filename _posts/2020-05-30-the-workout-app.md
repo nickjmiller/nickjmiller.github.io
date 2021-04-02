@@ -5,7 +5,7 @@ date:   2020-05-30 12:00:00 -0600
 categories: news front-end
 ---
 
-After talking about jQuery sucking [in my last post]({% post_url 2020-05-14-first %}), I decided to make a fully functional "app" that is actually useful, using nothing but vanilla javascript and HTML5. You can check it out [here](/workout).
+In my quarantine boredom, I decided to make a fully functional "app" that is actually useful, using nothing but vanilla javascript and HTML5. You can check it out [here](/workout).
 
 ## The App
 It's a random workout generator, when the page loads it shuffles a list of exercises and pulls the first 5. Users can click go and start working out with built in sets and rests.
