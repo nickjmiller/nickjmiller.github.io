@@ -4,3 +4,5 @@
 
 layout: home
 ---
+
+Hi, I'm Nick. I'm a software developer.
