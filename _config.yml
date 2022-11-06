@@ -25,3 +25,9 @@ minima:
         instance: mastodon.nickmiller.dev
 
 show_excerpts: true
+
+exclude:
+  - README
+  - Gemfile
+  - Gemfile.lock
+  - CNAME
