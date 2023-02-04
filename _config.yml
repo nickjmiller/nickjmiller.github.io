@@ -12,12 +12,11 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-
-remote_theme: jekyll/minima
+remote_theme: jekyll/minima@41b9769
 minima:
   skin: auto
   social_links:
-    github:  nickjmiller
+    github: nickjmiller
     twitter: nickmillerdev
     linkedin: nick-j-miller
     mastodon:
