@@ -7,19 +7,33 @@
         --aside-width: 180px;
       }
 
+      aside {
+        padding: var(--container-padding);
+        width: var(--aside-width);
+        position: fixed;
+      }
+
       body {
-        font-family: system-ui, sans-serif;
+        font: 18px/1.5 -apple-system, system-ui, sans-serif;
+        color: #444;
+        max-width: calc(var(--aside-width) * 4);
+        margin: 40px auto;
+        padding: 0 10px;
+      }
+
+      footer {
+        text-align: end;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.2;
       }
 
       main {
         padding: var(--container-padding);
         margin-left: calc(var(--aside-width) + (var(--container-padding) * 2));
-      }
-
-      aside {
-        padding: var(--container-padding);
-        width: var(--aside-width);
-        position: fixed;
       }
 
       svg {
@@ -28,6 +42,27 @@
         &:hover,
         &:focus {
           filter: drop-shadow(0 0 5px grey);
+        }
+      }
+
+      .flex-grid {
+        display: flex;
+      }
+
+      .col {
+        flex: 1;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          color: #c9d1d9;
+          background: #0d1117;
+        }
+        a:link {
+          color: #58a6ff;
+        }
+        a:visited {
+          color: #8e96f0;
         }
       }
 
@@ -89,42 +124,257 @@
           <circle cx="12" cy="12" r="11" opacity="0" />
         </a>
       </svg>
+      <nav>
+        <a href="#projects">Projects</a> |
+        <a href="#work">Work</a>
+      </nav>
     </aside>
     <main>
-      <h2>Projects</h2>
-      <h3>pytest-fixtures VSCode Extension</h3>
-      <p>
-        A VSCode extension that supports auto-complete and go-to definitions for
-        pytest fixture parameters.
-      </p>
-      <ul>
-        <li>
+      <section id="projects">
+        <h2>Personal Projects</h2>
+        <p>
+          See
+          <a href="https://github.com/nickjmiller/" aria-label="GitHub profile"
+            >github</a
+          >
+          for more details.
+        </p>
+        <h3>pytest-fixtures</h3>
+        <p>
+          A Visual Studio Code extension that supports auto-complete and go-to
+          definitions for pytest fixture parameters. 28,000 downloads as of
+          September 2024.
+        </p>
+        <div class="flex-grid">
+          <details class="col" open>
+            <summary>Languages</summary>
+            <ul>
+              <li>Typescript</li>
+              <li>Python (Indirectly)</li>
+            </ul>
+          </details>
+          <details class="col" open>
+            <summary>Tech</summary>
+            <ul>
+              <li>
+                <a href="https://code.visualstudio.com/api"
+                  >VSCode Extension API</a
+                >
+              </li>
+              <li><a href="https://docs.pytest.org/">pytest</a></li>
+            </ul>
+          </details>
+          <details class="col" open>
+            <summary>Links</summary>
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/nickjmiller/pytest-fixtures"
+                  aria-label="pytest-fixtures GitHub"
+                  >GitHub</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://marketplace.visualstudio.com/items?itemName=nickmillerdev.pytest-fixtures"
+                  aria-label="VSCode Marketplace"
+                >
+                  VSCode Marketplace</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://open-vsx.org/extension/nickmillerdev/pytest-fixtures"
+                  aria-label="OpenVSX Marketplace"
+                  >OpenVSX</a
+                >
+              </li>
+            </ul>
+          </details>
+        </div>
+        <h3>Get It</h3>
+        <p>
+          A Flutter app for motivation through social competitions. Includes
+          regular, personalized notifications. Available on desktop, web, and as
+          a PWA.
+        </p>
+        <div class="flex-grid">
+          <details class="col" open>
+            <summary>Languages</summary>
+            <ul>
+              <li>Dart</li>
+              <li>Rust</li>
+            </ul>
+          </details>
+          <details class="col" open>
+            <summary>Tech</summary>
+            <ul>
+              <li>
+                <a href="https://flutter.dev/">Flutter</a>
+              </li>
+              <li><a href="https://firebase.google.com/">Firebase</a></li>
+              <li>
+                <a href="https://pages.cloudflare.com/">Cloudflare Pages</a>
+              </li>
+              <li><a href="https://fly.io/">Fly.io</a></li>
+            </ul>
+          </details>
+          <details class="col" open>
+            <summary>Links</summary>
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/nickjmiller/get_it"
+                  aria-label="Get It GitHub"
+                  >GitHub</a
+                >
+              </li>
+              <li>
+                <a href="https://example.com" aria-label="Website link">
+                  Website</a
+                >
+              </li>
+            </ul>
+          </details>
+        </div>
+        <h3>No Short Rests</h3>
+        <p>
+          A roguelike game inspired by
           <a
-            href="https://github.com/nickjmiller/pytest-fixtures"
-            aria-label="GitHub repo"
-            >GitHub repo</a
-          >
-        </li>
-        <li>
+            href="https://www.roguebasin.com/index.php?title=Complete_Roguelike_Tutorial,_using_python%2Blibtcod"
+            >the classic tutorial</a
+          >, built in Godot with Rust bindings. Features a unique turn-based
+          combat system and 2D assets from
+          <a href="https://kenney.nl/assets/tiny-dungeon"
+            >Kenney Tiny Dungeon Pack</a
+          >.
+        </p>
+        <div class="flex-grid">
+          <details class="col" open>
+            <summary>Languages</summary>
+            <ul>
+              <li>GDScript</li>
+              <li>Rust</li>
+            </ul>
+          </details>
+          <details class="col" open>
+            <summary>Tech</summary>
+            <ul>
+              <li>
+                <a href="https://godotengine.org/">Godot</a>
+              </li>
+              <li><a href="https://github.com/godot-rust/gdext">gdext</a></li>
+            </ul>
+          </details>
+          <details class="col" open>
+            <summary>Links</summary>
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/nickjmiller/no-short-rests"
+                  aria-label="no-short-rests GitHub"
+                  >GitHub</a
+                >
+              </li>
+            </ul>
+          </details>
+        </div>
+        <h3>BLECycle</h3>
+        <p>
+          A Watchkit app to integrate Apple Watch workouts with BLE cycling
+          devices. Tested with Bowflex C6, this allows you to record a workout
+          using the heart rate from your watch and the distance/power from your
+          bike at the same time.
+        </p>
+        <div class="flex-grid">
+          <details class="col" open>
+            <summary>Languages</summary>
+            <ul>
+              <li>Swift</li>
+            </ul>
+          </details>
+          <details class="col" open>
+            <summary>Tech</summary>
+            <ul>
+              <li>
+                <a href="https://developer.apple.com/documentation/watchkit/"
+                  >WatchKit</a
+                >
+              </li>
+              <li>
+                <a href="https://developer.apple.com/documentation/healthkit/"
+                  >HealthKit</a
+                >
+              </li>
+            </ul>
+          </details>
+          <details class="col" open>
+            <summary>Links</summary>
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/nickjmiller/BLECycle"
+                  aria-label="BLECycle GitHub"
+                  >GitHub</a
+                >
+              </li>
+            </ul>
+          </details>
+        </div>
+        <h3>Fitnessity</h3>
+        <p>
+          Bodyweight workout generator. Allows customization by target muscle
+          groups and comes with built in set and rest timers. Built with friends
+          during lockdown.
+        </p>
+        <div class="flex-grid">
+          <details class="col" open>
+            <summary>Languages</summary>
+            <ul>
+              <li>Typescript</li>
+            </ul>
+          </details>
+          <details class="col" open>
+            <summary>Tech</summary>
+            <ul>
+              <li>
+                <a href="https://react.dev/">React</a>
+              </li>
+              <li><a href="https://aws.amazon.com/amplify/">AWS Amplify</a></li>
+            </ul>
+          </details>
+          <details class="col" open>
+            <summary>Links</summary>
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/nickjmiller/fitnessity"
+                  aria-label="Fitnessity GitHub"
+                  >GitHub</a
+                >
+              </li>
+            </ul>
+          </details>
+        </div>
+      </section>
+      <section id="work">
+        <h2>Work Experience</h2>
+        <p>
+          See
           <a
-            href="https://marketplace.visualstudio.com/items?itemName=nickmillerdev.pytest-fixtures"
-            aria-label="VSCode Marketplace"
+            href="https://www.linkedin.com/in/nick-j-miller/"
+            aria-label="LinkedIn profile"
+            >LinkedIn</a
           >
-            VSCode Marketplace</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://open-vsx.org/extension/nickmillerdev/pytest-fixtures"
-            aria-label="OpenVSX Marketplace"
-            >OpenVSX</a
-          >
-        </li>
-      </ul>
-      <h3>BLECycle</h3>
-      <p>WIP integration of Apple Watch and Bowflex C6 for cycling workouts.</p>
-      <h3>Fitnessity</h3>
-      <p>At home workout generator, built with friends during lockdown.</p>
+          for more details.
+        </p>
+        <h3>Google</h3>
+        <p>SWE: August 2022 - Present</p>
+        <h3>Amazon</h3>
+        <p>SDE: July 2018 - July 2022</p>
+        <p>SDE Intern: May 2017 - August 2017</p>
+      </section>
     </main>
+    <footer><i>Last updated: September 2024</i></footer>
   </body>
 </html>

@@ -3,7 +3,24 @@
   <head>
     <style>
       body {
-        font-family: system-ui, sans-serif;
+        font: 18px/1.5 -apple-system, system-ui, sans-serif;
+        color: #444;
+        max-width: 720px;
+        margin: 40px auto;
+        padding: 0 10px;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          color: #c9d1d9;
+          background: #0d1117;
+        }
+        a:link {
+          color: #58a6ff;
+        }
+        a:visited {
+          color: #8e96f0;
+        }
       }
     </style>
     <meta charset="UTF-8" />
@@ -16,7 +33,7 @@
 
   <body>
     <header>
-      <h1>404 error.</h1>
+      <h1>404 Error</h1>
       <hr />
     </header>
     <p>
